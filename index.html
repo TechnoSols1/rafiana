@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apartament Kapitan – Władysławowo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Apartament Kapitan we Władysławowie – przytulny apartament z widokiem na morze, blisko plaży, lasu i atrakcji przez cały rok."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-alt: #020617;
+      --accent: #f97316;
+      --accent-soft: rgba(249, 115, 22, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card: #020617;
+      --border: rgba(148, 163, 184, 0.25);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.85);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2933 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 75vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+      gap: 3rem;
+      padding: 1.75rem clamp(1.25rem, 4vw, 3rem) 3.5rem;
+      color: #f9fafb;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(
+          to top,
+          rgba(15, 23, 42, 0.85),
+          rgba(15, 23, 42, 0.4)
+        ),
+        url("rafiana-hygge.png");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.55;
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      align-self: center;
+    }
+
+    .logo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem 0.35rem 0.35rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      margin-bottom: 1.1rem;
+      backdrop-filter: blur(16px);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .logo-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fed7aa, #f97316);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #cbd5f5;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 36rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--muted);
+    }
+
+    .badge span {
+      font-size: 0.9rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316, #facc15);
+      color: #111827;
+      box-shadow: 0 18px 40px rgba(248, 171, 60, 0.55);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(248, 171, 60, 0.8);
+    }
+
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.55);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: #f97316;
+      background: rgba(15, 23, 42, 0.95);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.6rem;
+    }
+
+    .hero-media {
+      align-self: flex-end;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .hero-card {
+      width: 100%;
+      max-width: 430px;
+      background: radial-gradient(circle at top, #111827, #020617);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transform: translateY(18px);
+    }
+
+    .hero-card-image {
+      position: relative;
+      overflow: hidden;
+      max-height: 260px;
+    }
+
+    .hero-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.15);
+      transform: scale(1.03);
+    }
+
+    .hero-chip {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.78rem;
+      color: #e5e7eb;
+    }
+
+    .hero-card-body {
+      padding: 1.2rem 1.35rem 1.4rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-card-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      padding-top: 0.7rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-card-meta strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    nav {
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+      padding: 0.75rem clamp(1.25rem, 4vw, 3rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .nav-brand {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.9rem;
+      font-size: 0.82rem;
+    }
+
+    .nav-links a {
+      color: #e5e7eb;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(248, 171, 60, 0.9);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    main {
+      flex: 1;
+      padding: 3rem 1.25rem 4rem;
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto 2.5rem;
+      padding: 1.8rem 1.5rem 2rem;
+      background: radial-gradient(circle at top left, #020617, #020617);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 60px rgba(15, 23, 42, 0.8);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .section p {
+      margin-bottom: 0.65rem;
+      color: var(--text);
+      font-size: 0.93rem;
+    }
+
+    .section p.lead {
+      font-size: 0.98rem;
+      color: #e5e7eb;
+    }
+
+    .section small {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.3rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+    }
+
+    .pill {
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 0.3rem;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .tagline-box {
+      margin-top: 0.8rem;
+      padding: 0.75rem 0.95rem;
+      border-radius: 0.9rem;
+      background: var(--accent-soft);
+      border: 1px solid rgba(248, 171, 60, 0.45);
+      font-size: 0.85rem;
+      color: #fed7aa;
+    }
+
+    .columns-2 {
+      column-count: 2;
+      column-gap: 1.8rem;
+    }
+
+    .info-highlight {
+      font-size: 0.86rem;
+      color: var(--muted);
+      border-top: 1px dashed rgba(148, 163, 184, 0.45);
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      padding: 1rem 1.1rem;
+      border-radius: 1rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 0.9rem;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .contact-value {
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .contact-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.6rem;
+    }
+
+    footer {
+      padding: 1.8rem 1.25rem 2.4rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    footer strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 4.2rem;
+        gap: 2.3rem;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(15, 23, 42, 0.96),
+          rgba(15, 23, 42, 0.7)
+        );
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-media {
+        justify-content: flex-start;
+      }
+
+      .hero-card {
+        max-width: 100%;
+        transform: translateY(0);
+      }
+
+      main {
+        padding-top: 2rem;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .section {
+        padding-inline: 1.1rem;
+      }
+
+      .grid-2,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .columns-2 {
+        column-count: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HERO -->
+    <header>
+      <nav>
+        <div class="nav-brand">Apartament Kapitan</div>
+        <div class="nav-links">
+          <a href="#lokalizacja">Lokalizacja</a>
+          <a href="#uklad">Układ</a>
+          <a href="#okolica">Okolica</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+      </nav>
+
+      <section class="hero">
+        <div class="hero-content">
+          <div class="logo-pill">
+            <span class="logo-dot">AK</span>
+            Apartament z widokiem na morze • Władysławowo
+          </div>
+          <h1 class="hero-title">Apartament Kapitan</h1>
+          <div class="hero-subtitle">Władysławowo • Bałtycki hygge</div>
+          <p class="hero-tagline">
+            Przytulny apartament z nieograniczonym widokiem aż po horyzont –
+            na Morze Bałtyckie i Półwysep Helski. Idealny dla tych, którzy
+            szukają spokoju, przestrzeni i morskiego klimatu przez cały rok.
+          </p>
+
+          <div class="hero-badges">
+            <div class="badge">
+              <span>🌊</span>
+              Widok na morze i port
+            </div>
+            <div class="badge">
+              <span>🌲</span>
+              Blisko lasu i Jeziora Dobre
+            </div>
+            <div class="badge">
+              <span>🚗</span>
+              Prywatne miejsce parkingowe + garaż
+            </div>
+            <div class="badge">
+              <span>🔥</span>
+              Kominek na chłodniejsze wieczory
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#kontakt" class="btn-primary">
+              Zapytaj o dostępność
+            </a>
+            <a href="#dlaczego" class="btn-outline">
+              Dlaczego warto?
+            </a>
+          </div>
+          <div class="hero-note">
+            Wynajem w gronie znajomych i poleconych osób – bez pośredników,
+            w przyjaznej atmosferze.
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-card" aria-hidden="true">
+            <div class="hero-card-image">
+              <img src="rafiana-hygge.png" alt="Rowery na tle zachodu słońca nad morzem" />
+            
+            </div>
+            <div class="hero-card-body">
+              <div class="hero-card-title">
+                Blisko natury, plaży i miasta
+              </div>
+              <div class="hero-card-text">
+                Spokojna, mieszkalna część Władysławowa – tuż przy terenach
+                zielonych Ocean Parku, parku miejskim i w niedużej odległości
+                od plaży oraz centrum.
+              </div>
+              <div class="hero-card-meta">
+                <div>
+                  <strong>20 min spacerem</strong><br />
+                  szeroka, piaszczysta plaża
+                </div>
+                <div>
+                  <strong>10 min</strong><br />
+                  dworzec kolejowy
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <!-- O APARTAMENCIE -->
+      <section class="section" id="o-apartamencie">
+        <div class="section-header">
+          <h2 class="section-title">🧭 Apartament Kapitan – Władysławowo</h2>
+          <span class="section-kicker">O apartamencie</span>
+        </div>
+        <p class="lead">
+          Przytulny apartament z nieograniczonym widokiem aż po horyzont –
+          na Morze Bałtyckie i Półwysep Helski. To idealne miejsce dla tych,
+          którzy szukają spokoju i relaksu, a jednocześnie bliskości
+          nadmorskich atrakcji.
+        </p>
+        <p>
+          Położony w spokojnej, mieszkalnej części Władysławowa, tuż przy
+          terenach zielonych Ocean Parku oraz w odległości krótkiego spaceru
+          od Parku Miejskiego im. Hieronima Derdowskiego.
+        </p>
+        <div class="tagline-box">
+          🌅 Tutaj dzień zaczyna się od widoku na morze, a kończy przy
+          kominku i szumie fal dochodzącym z oddali.
+        </div>
+      </section>
+
+      <!-- LOKALIZACJA -->
+      <section class="section" id="lokalizacja">
+        <div class="section-header">
+          <h2 class="section-title">📍 Lokalizacja</h2>
+          <span class="section-kicker">Blisko wszystkiego, ale w spokoju</span>
+        </div>
+        <div class="grid grid-2">
+          <div>
+            <p class="lead">
+              Apartament znajduje się w spokojnym otoczeniu zieleni, z szybkim
+              dostępem do centrum, komunikacji i nadmorskich atrakcji.
+            </p>
+            <ul>
+              <li>ok. 900 m od dworca kolejowego (ok. 10 minut spacerem) 🚆</li>
+              <li>ok. 800 m od dworca autobusowego 🚌</li>
+              <li>
+                szybki dojazd w kierunku Helu, Jastrzębiej Góry i Pucka
+              </li>
+              <li>w otoczeniu zieleni i blisko centrum miasta</li>
+            </ul>
+          </div>
+          <div>
+            <p>
+              W najbliższym sąsiedztwie znajdziesz sklepy spożywcze, plac
+              zabaw dla dzieci, Ocean Park oraz ścieżki idealne na spacery i
+              wycieczki rowerowe.
+            </p>
+            <p class="info-highlight">
+              📌 Adres: Baltic Nova, ul. Reja 2B, Władysławowo
+              <br />
+              (dokładny adres i szczegóły dojazdu przekazujemy przed przyjazdem).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- UKŁAD APARTAMENTU -->
+      <section class="section" id="uklad">
+        <div class="section-header">
+          <h2 class="section-title">⚓️ Układ apartamentu</h2>
+          <span class="section-kicker">Komfort dla pary, rodziny lub znajomych</span>
+        </div>
+        <div class="grid grid-2">
+          <div>
+            <p class="lead">
+              Przestronne wnętrze z wysokim sufitem zapewnia poczucie swobody,
+              a przemyślany układ pomieszczeń – komfortowy wypoczynek.
+            </p>
+            <ul>
+              <li>🛏️ Sypialnia – wygodne łóżko dwuosobowe</li>
+              <li>
+                🛋️ Salon z aneksem kuchennym – rozkładana sofa (dla 2 osób),
+                w pełni wyposażona kuchnia
+              </li>
+              <li>🚿 Łazienka – kabina prysznicowa, pralka</li>
+              <li>
+                🌅 Balkon z widokiem na ratusz, morze i przepływające statki
+              </li>
+              <li>🔥 Kominek na biopaliwo – idealny na chłodniejsze wieczory</li>
+            </ul>
+          </div>
+          <div>
+            <p>
+              Apartament znajduje się na trzecim piętrze budynku – wysokość i
+              ekspozycja zapewniają piękny widok oraz więcej prywatności.
+            </p>
+            <div class="pill-list">
+              <div class="pill">Wysoki sufit</div>
+              <div class="pill">Przestronny salon</div>
+              <div class="pill">W pełni wyposażona kuchnia</div>
+              <div class="pill">Kominek na biopaliwo</div>
+            </div>
+            <p class="info-highlight">
+              🧳 Idealny zarówno na romantyczny wyjazd we dwoje, jak i
+              na wypoczynek w gronie rodziny lub przyjaciół.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- NATURA, PLAŻA, OKOLICA -->
+      <section class="section" id="okolica">
+        <div class="section-header">
+          <h2 class="section-title">🌊 Blisko natury i plaży</h2>
+          <span class="section-kicker">Bałtyk na wyciągnięcie ręki</span>
+        </div>
+        <div class="grid grid-2">
+          <div>
+            <p class="lead">
+              Szeroka, piaszczysta plaża czeka ok. 20 minut spacerem lub 5 minut
+              samochodem. Po drodze miniesz zieleń, kawiarnie i nadmorski klimat
+              Władysławowa.
+            </p>
+            <ul>
+              <li>Szeroka, piaszczysta plaża – ok. 20 min spacerem</li>
+              <li>Plac zabaw dla dzieci w najbliższym sąsiedztwie</li>
+              <li>Sklepy spożywcze kilka minut pieszo</li>
+              <li>Ocean Park – ok. 5 minut spacerem</li>
+            </ul>
+          </div>
+          <div>
+            <p>
+              Wieczorami warto wybrać się na deptak i do portu rybackiego –
+              to idealne miejsca na spacery, zachody słońca i morską atmosferę
+              przez cały rok.
+            </p>
+            <p class="info-highlight">
+              🐚 W okolicy znajdziesz też liczne ścieżki spacerowe i rowerowe,
+              prowadzące m.in. w stronę Helu, Jastrzębiej Góry i Nadmorskiego
+              Parku Krajobrazowego.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPORT & WELLNESS -->
+      <section class="section" id="wellness">
+        <div class="section-header">
+          <h2 class="section-title">💪 Udogodnienia sportowe i wellness</h2>
+          <span class="section-kicker">Aktywnie przez cały rok</span>
+        </div>
+        <div class="columns-2">
+          <p class="lead">
+            W okolicy znajdziesz miejsca, które zadbają o ruch, relaks i dobrą
+            formę – niezależnie od pogody.
+          </p>
+
+          <p>
+            🏋️‍♂️ <strong>Siłownia – Pensjonat Luan</strong><br />
+            Nowoczesna siłownia czynna cały rok, zlokalizowana ok. 15 minut
+            pieszo od apartamentu. Bogaty wybór sprzętu, strefa cardio oraz
+            możliwość treningu personalnego.
+            <br />
+            <small>🔗 Tu możesz dodać link do strony siłowni.</small>
+          </p>
+
+          <p>
+            🏊‍♀️ <strong>Park wodny &amp; SPA – Hotel Primavera</strong><br />
+            Obiekt w Jastrzębiej Górze (ok. 15 minut samochodem). Basen o długości
+            28 m, zjeżdżalnie, jacuzzi, sauny i strefa relaksu – świetne miejsce
+            na wypoczynek o każdej porze roku.
+            <br />
+            <small>🔗 Tu możesz dodać link do parku wodnego.</small>
+          </p>
+
+          <p>
+            🧗‍♂️ <strong>Ściana wspinaczkowa – Gwiazda Morza Resort SPA&amp;SPORT</strong
+            ><br />
+            Imponująca ścianka wspinaczkowa o wysokości ok. 16–18 m, idealna dla
+            dorosłych i dzieci. Całoroczna atrakcja dla aktywnych gości.
+            <br />
+            <small>🔗 Tu możesz dodać link do strony o ściance wspinaczkowej.</small>
+          </p>
+        </div>
+      </section>
+
+      <!-- BISTRO -->
+      <section class="section" id="bistro">
+        <div class="section-header">
+          <h2 class="section-title">🍴 Bistro Pizza – smaki przez cały rok</h2>
+          <span class="section-kicker">Kuchnia w zasięgu spaceru</span>
+        </div>
+        <p class="lead">
+          🍕 Bistro Pizza to przytulna restauracja czynna przez cały rok,
+          oferująca pyszne dania kuchni włoskiej i polskiej – od chrupiącej
+          pizzy z pieca, przez makarony, po świeże ryby i sałatki.
+        </p>
+        <p>
+          To świetne miejsce на обiad по dniu на plaży lub kolację przy lampce
+          wina. Goście chwalą doskonały smak i rozsądne ceny, a ciepła
+          atmosfera sprawia, że chce się tam wracać.
+        </p>
+        <p class="info-highlight">
+          🔗 Tu możesz dodać link do Bistro Pizza we Władysławowie.
+        </p>
+      </section>
+
+      <!-- CAŁY ROK -->
+      <section class="section" id="caly-rok">
+        <div class="section-header">
+          <h2 class="section-title">🌤️ Władysławowo przez cały rok</h2>
+          <span class="section-kicker">Nie tylko sezon wakacyjny</span>
+        </div>
+        <div class="grid grid-2">
+          <div>
+            <p class="lead">
+              Apartament Kapitan to nie tylko wakacyjny azyl. О każdej porze roku
+              znajdziesz tu coś wyjątkowego:
+            </p>
+            <ul>
+              <li>
+                🍄 <strong>Jesień</strong> – wyprawy na grzyby w okolicznych
+                lasach i spacery po pustych plażach
+              </li>
+              <li>
+                🎣 <strong>Wiosna</strong> – wędkowanie i rowerowe wycieczki
+                po Nadmorskim Parku Krajobrazowym
+              </li>
+              <li>
+                🚴 <strong>Lato</strong> – kąpiele morskie, słońce i trasy
+                rowerowe do Helu i Jastrzębiej Góry
+              </li>
+              <li>
+                🔥 <strong>Zima</strong> – romantyczne wieczory przy kominku
+                i spacery при sztormowym morzu
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p>
+              🏞️ <strong>Jezioro Dobre</strong> – położone w lesie,
+              ok. 15 minut samochodem od apartamentu.
+            </p>
+            <p>
+              Latem to idealne miejsce на kąpiele w czystej wodzie, a zimą
+              przyciąga miłośników morsowania i spacerów po zamarzniętych
+              brzegach.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- W GRONIE ZNAJOMYCH -->
+      <section class="section" id="znajomi">
+        <div class="section-header">
+          <h2 class="section-title">🧳 W gronie znajomych</h2>
+          <span class="section-kicker">Zaufana atmosfera</span>
+        </div>
+        <p class="lead">
+          Nasz Apartament Kapitan wynajmujemy głównie w gronie znajomych i
+          poleconych osób. Chcemy, aby każdy, kto tu przyjeżdża, czuł się
+          jak u siebie – z poszanowaniem miejsca i spokoju.
+        </p>
+        <p>
+          🧼 Osoby korzystające z apartamentu zastają i pozostawiają go
+          w czystości. Nie zatrudniamy serwisu sprzątającego – dzięki temu
+          możemy udostępnić mieszkanie w korzystniejszej cenie niż na Booking
+          czy Airbnb.
+        </p>
+        <p>
+          🗝️ Pościel, ręczniki i klucze przekazujemy osobiście przed
+          przyjazdem, a po zakończeniu pobytu sami je odbieramy.
+          Dzięki temu dbamy o indywidualny kontakt i komfort naszych gości.
+        </p>
+      </section>
+
+      <!-- PARKING & GARAŻ -->
+      <section class="section" id="parking">
+        <div class="section-header">
+          <h2 class="section-title">🚗 Parking i garaż</h2>
+          <span class="section-kicker">Wygoda i bezpieczeństwo</span>
+        </div>
+        <div class="grid grid-2">
+          <div>
+            <p class="lead">
+              Do apartamentu przynależy prywatne miejsce parkingowe на terenie
+              posesji Baltic Nova, ul. Reja 2B – dostępne wyłącznie dla gości
+              Apartamentu Kapitan.
+            </p>
+          </div>
+          <div>
+            <p>
+              🚲 Dodatkowo do dyspozycji gości jest garaż, w którym można
+              bezpiecznie przechować:
+            </p>
+            <ul>
+              <li>sprzęt plażowy,</li>
+              <li>wózki dziecięce,</li>
+              <li>rowery, hulajnogi i inne akcesoria turystyczne.</li>
+            </ul>
+            <p class="info-highlight">
+              Dzięki temu możecie podróżować bez obaw o miejsce do przechowywania
+              rzeczy i cieszyć się pełną wygodą podczas pobytu.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DLACZEGO WARTO -->
+      <section class="section" id="dlaczego">
+        <div class="section-header">
+          <h2 class="section-title">🐚 Dlaczego warto?</h2>
+          <span class="section-kicker">Najważniejsze atuty</span>
+        </div>
+        <div class="pill-list">
+          <div class="pill">✅ Spokojna lokalizacja blisko centrum</div>
+          <div class="pill">✅ Widok na morze i port</div>
+          <div class="pill">✅ Komfortowe wyposażenie</div>
+          <div class="pill">✅ Jezioro i las w zasięgu krótkiej wycieczki</div>
+          <div class="pill">✅ Prywatne miejsce parkingowe i garaż</div>
+          <div class="pill">✅ Wynajem w gronie znajomych</div>
+          <div class="pill">✅ Doskonała baza wypadowa przez cały rok</div>
+          <div class="pill">✅ Sport, wellness i dobre jedzenie w okolicy</div>
+        </div>
+      </section>
+
+      <!-- KONTAKT -->
+      <section class="section" id="kontakt">
+        <div class="section-header">
+          <h2 class="section-title">📬 Zapytaj o termin</h2>
+          <span class="section-kicker">Kontakt &amp; rezerwacje</span>
+        </div>
+        <div class="contact-grid">
+          <div>
+            <p class="lead">
+              Apartament Kapitan rezerwujemy indywidualnie – najczęściej dla
+              znajomych i osób poleconych. Jeśli chcesz sprawdzić dostępność
+              lub dopytać o szczegóły, odezwij się do nas.
+            </p>
+            <p>
+              Napisz, w jakim terminie planujesz przyjazd, ile osób będzie
+              podróżować i czy potrzebujecie dodatkowego miejsca na sprzęt
+              (rowery, wózek, deski itp.).
+            </p>
+            <p class="info-highlight">
+              💡 Jeśli do tej pory korzystałeś z naszych noclegów przez
+              serwisy rezerwacyjne, przy bezpośrednim kontakcie możemy
+              zaproponować korzystniejsze warunki.
+            </p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-row">
+              <div>
+                <div class="contact-label">E-mail</div>
+                <div class="contact-value">
+                  <a href="mailto:twoj.mail@domena.pl">apartmentyrafiana@gmail.com</a>
+                </div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div>
+                <div class="contact-label">Telefon</div>
+                <div class="contact-value">
+                  <a href="tel:+48000000000">+48 572 506 963</a>
+                </div>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div>
+                <div class="contact-label">Preferowana forma</div>
+                <div class="contact-value">
+                  Wiadomość SMS lub e-mail
+                </div>
+              </div>
+            </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <strong>Apartament Kapitan – Władysławowo</strong> • prywatny apartament
+        z widokiem na morze, dostępny w zaufanym gronie.
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
