@@ -103,21 +103,21 @@
       align-self: center;
     }
 
-    .logo-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 0.85rem 0.35rem 0.35rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      margin-bottom: 1.1rem;
-      backdrop-filter: blur(16px);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-    }
+.logo-pill {
+  display: flex;               /* USTAWIA linię poziomą */
+  align-items: center;         /* Wyrównuje logo + tekst */
+  gap: 0.5rem;                 /* Odstęp między ikoną a napisami */
+
+  font-size: 0.9rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.75);
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  backdrop-filter: blur(10px);
+  white-space: nowrap;         /* zapobiega łamaniu */
+}
+
 
     .logo-dot {
       width: 24px;
@@ -604,6 +604,13 @@
   background: #fb923c;
   transform: translateY(-3px);
 }
+.logo-hero-mini {
+  height: 20px;     /* możesz zmienić np. na 24px */
+  width: auto;
+  display: block;
+  border-radius: 4px; /* opcjonalnie, jeśli chcesz zaokrąglić */
+}
+
 
   </style>
 </head>
@@ -622,11 +629,12 @@
       </nav>
 
       <section class="hero">
-        <div class="hero-content">
-          <div class="logo-pill">
-            <span class="logo-dot">AK</span>
-            Apartament z widokiem na morze • Władysławowo
-          </div>
+<div class="hero-content">
+  <div class="logo-pill">
+    <img src="logo-kapitan.png" alt="Logo Apartament Kapitan" class="logo-hero-mini">
+    Apartament z widokiem na morze • Władysławowo
+  </div>
+</div>
           <h1 class="hero-title">Apartament Kapitan</h1>
           <div class="hero-subtitle">Władysławowo • Bałtycki hygge</div>
           <p class="hero-tagline">
@@ -891,7 +899,7 @@
           pizzy z pieca, przez makarony, po świeże ryby i sałatki.
         </p>
         <p>
-          To świetne miejsce на обiad по dniu на plaży lub kolację przy lampce
+          To świetne miejsce nа оbiad pо dniu на plaży lub kolację przy lampce
           wina. Goście chwalą doskonały smak i rozsądne ceny, a ciepła
           atmosfera sprawia, że chce się tam wracać.
         </p>
