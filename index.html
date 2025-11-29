@@ -610,7 +610,19 @@
   display: block;
   border-radius: 4px; /* opcjonalnie, jeśli chcesz zaokrąglić */
 }
+@media (max-width: 640px) {
+  .logo-pill {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    padding: 0.35rem 0.7rem;
+    max-width: 90%;
+    flex-wrap: wrap;          /* pozwala zawijać się w dwie linie */
+    justify-content: flex-start;
+  }
 
+  .logo-hero-mini {
+    height: 18px;             /* trochę mniejsze logo */
+  }
 
   .nav-brand {
     font-size: 0.75rem;
