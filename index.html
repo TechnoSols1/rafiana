@@ -77,7 +77,7 @@
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
       gap: 3rem;
-      padding: 1.75rem clamp(1.25rem, 4vw, 3rem) 3.5rem;
+        padding: 5.5rem clamp(1.25rem, 4vw, 3rem) 3.5rem;
       color: #f9fafb;
       isolation: isolate;
     }
@@ -582,6 +582,29 @@
         column-count: 1;
       }
     }
+	/* Przycisk powrotu na górę */
+#backToTop {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: #f97316;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 999;
+  display: none; /* ukryty domyślnie */
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+#backToTop:hover {
+  background: #fb923c;
+  transform: translateY(-3px);
+}
+
   </style>
 </head>
 <body>
@@ -1059,5 +1082,22 @@
       </div>
     </footer>
   </div>
+  <button id="backToTop" title="Do góry">↑</button>
+  <script>
+  const backToTop = document.getElementById("backToTop");
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  };
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
 </body>
 </html>
