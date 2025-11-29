@@ -108,6 +108,9 @@
   align-items: center;         /* Wyrównuje logo + tekst */
   gap: 0.5rem;                 /* Odstęp między ikoną a napisami */
 
+  margin-left: clamp(1.75rem, 4vw, 3rem);
+
+
   font-size: 0.9rem;
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
@@ -605,7 +608,7 @@
   transform: translateY(-3px);
 }
 .logo-hero-mini {
-  height: 35px;     /* możesz zmienić np. na 24px */
+  height: 60px;     /* możesz zmienić np. na 24px */
   width: auto;
   display: block;
   border-radius: 4px; /* opcjonalnie, jeśli chcesz zaokrąglić */
@@ -634,7 +637,9 @@
 @media (max-width: 640px) {
   .hero {
     padding-top: 4.5rem;        /* trochę mniej pustej przestrzeni u góry */
-    gap: 1.5rem;
+    gap: 1.75rem;
+	margin-left: clamp(1.5rem, 4vw, 3rem);   /* wyrównanie do nagłówków */
+    margin-right: auto;    
   }
 
   .logo-pill {
@@ -652,7 +657,7 @@
   }
 
   .logo-hero-mini {
-    height: 20px;               /* rozsądny rozmiar na telefonie */
+    height: 40px;               /* rozsądny rozmiar na telefonie */
     width: auto;
     flex-shrink: 0;
   }
