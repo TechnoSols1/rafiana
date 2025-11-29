@@ -115,7 +115,7 @@
   color: #e5e7eb;
   border: 1px solid rgba(148, 163, 184, 0.35);
   backdrop-filter: blur(10px);
-  white-space: nowrap;         /* zapobiega łamaniu */
+ 
 }
 
 
@@ -609,6 +609,27 @@
   width: auto;
   display: block;
   border-radius: 4px; /* opcjonalnie, jeśli chcesz zaokrąglić */
+}
+@media (max-width: 640px) {
+  .logo-pill {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    padding: 0.35rem 0.7rem;
+    max-width: 90%;
+    flex-wrap: wrap;          /* pozwala zawijać się w dwie linie */
+    justify-content: flex-start;
+  }
+
+  .logo-hero-mini {
+    height: 18px;             /* trochę mniejsze logo */
+  }
+
+  .nav-brand {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    padding: 0.3rem 0.7rem;
+    max-width: 80%;
+  }
 }
 
 
