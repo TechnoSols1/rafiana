@@ -621,7 +621,7 @@
   }
 
   .logo-hero-mini {
-    height: 35px;             /* trochę mniejsze logo */
+    height: 35px;            
   }
 
   .nav-brand {
@@ -629,6 +629,32 @@
     letter-spacing: 0.12em;
     padding: 0.3rem 0.7rem;
     max-width: 80%;
+  }
+}
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 4.5rem;        /* trochę mniej pustej przestrzeni u góry */
+    gap: 1.5rem;
+  }
+
+  .logo-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+
+    font-size: 0.7rem;          /* mniejszy tekst */
+    letter-spacing: 0.12em;
+    padding: 0.30rem 0.75rem;   /* cieńsza pigułka */
+    max-width: 88%;             /* niech nie ciągnie się na pełną szerokość */
+    margin-inline: auto;        /* ładnie wycentrowana */
+    flex-wrap: nowrap;          /* logo + tekst w jednej linii */
+    line-height: 1.3;
+  }
+
+  .logo-hero-mini {
+    height: 20px;               /* rozsądny rozmiar na telefonie */
+    width: auto;
+    flex-shrink: 0;
   }
 }
 
