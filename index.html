@@ -662,7 +662,56 @@
     flex-shrink: 0;
   }
 }
+/* Mała galeria – pasek miniatur, nie rozwala layoutu */
+.gallery-strip {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0.25rem 0.1rem 0.5rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
 
+.gallery-strip::-webkit-scrollbar {
+  height: 8px;
+}
+.gallery-strip::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  width: 160px;
+  height: 110px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.25);
+  scroll-snap-align: start;
+  display: block;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(249, 115, 22, 0.7);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Telefon: trochę większe kafelki i wygodniejsze scrollowanie */
+@media (max-width: 640px) {
+  .gallery-item {
+    width: 190px;
+    height: 130px;
+  }
+}
 
   </style>
 </head>
@@ -782,6 +831,40 @@
           kominku i szumie fal dochodzącym z oddali.
         </div>
       </section>
+<section class="section" id="galeria">
+  <div class="section-header">
+    <h2 class="section-title">📷 Galeria</h2>
+    <span class="section-kicker">Kilka ujęć apartamentu</span>
+  </div>
+
+  <div class="gallery-strip" aria-label="Galeria apartamentu">
+    <a href="img/01.jpg" target="_blank" class="gallery-item">
+      <img src="img/01.jpg" alt="Apartament – salon" loading="lazy">
+    </a>
+    <a href="img/02.jpg" target="_blank" class="gallery-item">
+      <img src="img/02.jpg" alt="Apartament – sypialnia" loading="lazy">
+    </a>
+    <a href="img/03.jpg" target="_blank" class="gallery-item">
+      <img src="img/03.jpg" alt="Apartament – kuchnia" loading="lazy">
+    </a>
+    <a href="img/04.jpg" target="_blank" class="gallery-item">
+      <img src="img/04.jpg" alt="Apartament – balkon" loading="lazy">
+    </a>
+        <a href="img/05.jpg" target="_blank" class="gallery-item">
+      <img src="img/05.jpg" alt="Apartament – balkon" loading="lazy">
+    </a>
+        </a>
+        <a href="img/06.jpg" target="_blank" class="gallery-item">
+      <img src="img/06.jpg" alt="Apartament – balkon" loading="lazy">
+    </a>
+        </a>
+        <a href="img/07.jpg" target="_blank" class="gallery-item">
+      <img src="img/07.jpg" alt="Apartament – balkon" loading="lazy">
+    </a>
+  </div>
+
+  <small>Tip: kliknij miniaturę, aby otworzyć zdjęcie w pełnym rozmiarze.</small>
+</section>
 
       <!-- LOKALIZACJA -->
       <section class="section" id="lokalizacja">
